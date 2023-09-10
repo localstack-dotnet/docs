@@ -1406,7 +1406,8 @@ then build a &lt;code>FatJar&lt;/code>, unzip it, and mount it into the Lambda D
 &lt;p>First, create a watchman wrapper by using
 &lt;a href="https://github.com/localstack/localstack-pro-samples/tree/master/sample-archive/spring-cloud-function-microservice/bin/watchman.sh">one of our examples&lt;/a>&lt;/p>
 &lt;p>Don&amp;rsquo;t forget to adjust permissions:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>chmod +x bin/watchman.sh&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>chmod +x bin/watchman.sh&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;p>Now configure your build tool to unzip the FatJar to some folder, which will be
 then mounted to LocalStack. We are using &lt;code>Gradle&lt;/code> build tool to unpack the
 &lt;code>FatJar&lt;/code> into the &lt;code>build/hot&lt;/code> folder:&lt;/p>
@@ -2140,7 +2141,8 @@ then add the following configuration:&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --handler myindex.handler \
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --runtime nodejs14.x \
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --timeout 150 \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --role arn:aws:iam::000000000000:role/lambda-role&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --role arn:aws:iam::000000000000:role/lambda-role&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;p>Now to debug your lambda function, click on the &lt;code>Debug&lt;/code> icon with
 &lt;code>Attach to Remote Node.js&lt;/code> configuration selected, and then invoke your
 lambda function:&lt;/p>
@@ -2892,7 +2894,8 @@ Note that only a single backend can be configured, meaning that you will get a s
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
 &lt;li>
 &lt;p>Run docker compose:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>docker-compose up -d&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>docker-compose up -d&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Create the Elasticsearch domain:
@@ -2928,21 +2931,25 @@ Note that only a single backend can be configured, meaning that you will get a s
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>If the &lt;code>Processing&lt;/code> status is true, it means that the cluster is not yet healthy. You can run &lt;code>describe-elasticsearch-domain&lt;/code> to receive the status:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal es describe-elasticsearch-domain --domain-name mylogs-2&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal es describe-elasticsearch-domain --domain-name mylogs-2&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Check the cluster health endpoint and create indices:
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>curl mylogs-2.us-east-1.es.localhost.localstack.cloud:4566/_cluster/health
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{&amp;#34;cluster_name&amp;#34;:&amp;#34;es-docker-cluster&amp;#34;,&amp;#34;status&amp;#34;:&amp;#34;green&amp;#34;,&amp;#34;timed_out&amp;#34;:false,&amp;#34;number_of_nodes&amp;#34;:1,&amp;#34;number_of_data_nodes&amp;#34;:1,&amp;#34;active_primary_shards&amp;#34;:0,&amp;#34;active_shards&amp;#34;:0,&amp;#34;relocating_shards&amp;#34;:0,&amp;#34;initializing_shards&amp;#34;:0,&amp;#34;unassigned_shards&amp;#34;:0,&amp;#34;delayed_unassigned_shards&amp;#34;:0,&amp;#34;number_of_pending_tasks&amp;#34;:0,&amp;#34;number_of_in_flight_fetch&amp;#34;:0,&amp;#34;task_max_waiting_in_queue_millis&amp;#34;:0,&amp;#34;active_shards_percent_as_number&amp;#34;:100.0}[~]&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{&amp;#34;cluster_name&amp;#34;:&amp;#34;es-docker-cluster&amp;#34;,&amp;#34;status&amp;#34;:&amp;#34;green&amp;#34;,&amp;#34;timed_out&amp;#34;:false,&amp;#34;number_of_nodes&amp;#34;:1,&amp;#34;number_of_data_nodes&amp;#34;:1,&amp;#34;active_primary_shards&amp;#34;:0,&amp;#34;active_shards&amp;#34;:0,&amp;#34;relocating_shards&amp;#34;:0,&amp;#34;initializing_shards&amp;#34;:0,&amp;#34;unassigned_shards&amp;#34;:0,&amp;#34;delayed_unassigned_shards&amp;#34;:0,&amp;#34;number_of_pending_tasks&amp;#34;:0,&amp;#34;number_of_in_flight_fetch&amp;#34;:0,&amp;#34;task_max_waiting_in_queue_millis&amp;#34;:0,&amp;#34;active_shards_percent_as_number&amp;#34;:100.0}[~]&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Create an example index:
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>curl -X PUT mylogs-2.us-east-1.es.localhost.localstack.cloud:4566/my-index
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{&amp;#34;acknowledged&amp;#34;:true,&amp;#34;shards_acknowledged&amp;#34;:true,&amp;#34;index&amp;#34;:&amp;#34;my-index&amp;#34;}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{&amp;#34;acknowledged&amp;#34;:true,&amp;#34;shards_acknowledged&amp;#34;:true,&amp;#34;index&amp;#34;:&amp;#34;my-index&amp;#34;}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;h2 id="differences-to-aws">Differences to AWS&lt;/h2>
@@ -2950,161 +2957,7 @@ Note that only a single backend can be configured, meaning that you will get a s
 &lt;li>By default, AWS only sets the &lt;code>Endpoint&lt;/code> attribute of the cluster status once the cluster is up.
 LocalStack will return the endpoint immediately, but keep &lt;code>Processing = &amp;quot;true&amp;quot;&lt;/code> until the cluster has been started.&lt;/li>
 &lt;li>The &lt;code>CustomEndpointOptions&lt;/code> allows arbitrary endpoint URLs, which is not allowed in AWS&lt;/li>
-&lt;/ul></description></item><item><title>User-Guide: Kinesis</title><link>/user-guide/aws/kinesis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/user-guide/aws/kinesis/</guid><description>
-&lt;p>AWS Kinesis is a data streaming service, which enables your application to ingest, buffer, and process data in real-time.
-Kinesis in LocalStack Community is powered by &lt;a href="https://github.com/etspaceman/kinesis-mock">Kinesis Mock&lt;/a> and has an &lt;a href="/user-guide/aws/feature-coverage/">extensively supported API&lt;/a>.&lt;/p>
-&lt;h2 id="quickstart">Quickstart&lt;/h2>
-&lt;p>Trying to run the example applications from the &lt;a href="https://docs.aws.amazon.com/streams/latest/dev/examples.html">official AWS developer guide&lt;/a> against LocalStack is a great place to start.
-Assuming you have &lt;code>awslocal&lt;/code> installed you can also try out the following commands:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal kinesis create-stream --stream-name samplestream --shard-count 1&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal kinesis list-streams
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;StreamNames&amp;#34;: [
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;samplestream&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal kinesis put-record --stream-name samplestream --data &amp;#39;{&amp;#34;symbol&amp;#34;:&amp;#34;TEST&amp;#34;,&amp;#34;sampleno&amp;#34;:42}&amp;#39; --partition-key test1
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ShardId&amp;#34;: &amp;#34;shardId-000000000001&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;SequenceNumber&amp;#34;: &amp;#34;49622467803485029265018102167378141645049970239670845458&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EncryptionType&amp;#34;: &amp;#34;NONE&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;p>Regardless of which provider you&amp;rsquo;re working with, Kinesis can be further configured with the following environment variables:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Variable&lt;/th>
-&lt;th>Description&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>KINESIS_ERROR_PROBABILITY&lt;/code>&lt;/td>
-&lt;td>Decimal value between &lt;code>0.0&lt;/code> (default) and &lt;code>1.0&lt;/code>. Typically, it is difficult to know beforehand whether your application can handle the throughput and whether it can deal with backpressure. By setting this environment variable the application will randomly inject &lt;code>ProvisionedThroughputException&lt;/code>. While this won&amp;rsquo;t tell you whether your application can handle sufficient throughput, it does help you to test whether your application can handle exceptions gracefully.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>KINESIS_SHARD_LIMIT&lt;/code>&lt;/td>
-&lt;td>Integer value (default: &lt;code>100&lt;/code>) or &lt;code>Infinity&lt;/code> (to disable). This variable can help you to test whether your application adheres to the allocated shard limit. This behavior can only be disabled by explicitly setting the environment variable as &lt;code>KINESIS_SHARD_LIMIT=Infinity&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>KINESIS_LATENCY&lt;/code>&lt;/td>
-&lt;td>Integer value of milliseconds (default: &lt;code>500&lt;/code>) or &lt;code>0&lt;/code> (to disable). Especially important for testing latency-critical applications. Since latency cannot be tested with the local Kinesis service, you can use this variable to introduce artificial latency into your AWS calls. This behavior can only be disabled by explicitly setting the environment variable as &lt;code>KINESIS_LATENCY=0&lt;/code>.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>KINESIS_INITIALIZE_STREAMS&lt;/code>&lt;/td>
-&lt;td>&lt;strong>Deprecated.&lt;/strong> A comma-delimited string of stream names, its corresponding shard count and an optional region to initialize during startup. If the region is not provided, the default region is used. For instance, &lt;code>KINESIS_INITIALIZE_STREAMS=my-first-stream:1,my-other-stream:2:us-west-2,my-last-stream:1&lt;/code>. In multi-account setups, the streams will be created for all accounts.&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h2 id="limitations">Limitations&lt;/h2>
-&lt;p>In multi-account setups, each AWS account launches a separate instance of Kinesis Mock.
-This is very resource intensive when a large number of AWS accounts are used.&lt;/p>
-&lt;p>This will be addressed in a future update.
-Follow up with &lt;a href="https://github.com/etspaceman/kinesis-mock/issues/377">this Kinesis Mock issue&lt;/a> to keep track of this feature.&lt;/p></description></item><item><title>User-Guide: Kinesis Data Firehose</title><link>/user-guide/aws/kinesis-firehose/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/user-guide/aws/kinesis-firehose/</guid><description>
-&lt;p>Kinesis Data Firehose is a service to extract, transform and load (ETL service) data to multiple destinations.
-LocalStack supports Firehose with Kinesis as source, and S3, Elasticsearch or HttpEndpoints as targets.&lt;/p>
-&lt;h2 id="examples">Examples&lt;/h2>
-&lt;p>We will provide some examples to illustrate the possibilities of Firehose in LocalStack.&lt;/p>
-&lt;h3 id="using-firehose-to-load-kinesis-data-into-elasticsearch-with-s3-backup">Using Firehose to load Kinesis data into Elasticsearch with S3 Backup&lt;/h3>
-&lt;p>As example, we want to deliver data sent to a Kinesis stream into Elasticsearch via Firehose, while making a full backup into a S3 bucket.
-We will assume LocalStack is already &lt;a href="/getting-started/">started correctly&lt;/a> and we have &lt;code>awslocal&lt;/code> &lt;a href="/user-guide/integrations/aws-cli/">installed&lt;/a>.&lt;/p>
-&lt;p>First we will create our Elasticsearch domain:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal es create-elasticsearch-domain --domain-name es-local
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DomainStatus&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DomainId&amp;#34;: &amp;#34;000000000000/es-local&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DomainName&amp;#34;: &amp;#34;es-local&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ARN&amp;#34;: &amp;#34;arn:aws:es:us-east-1:000000000000:domain/es-local&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Created&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Deleted&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Endpoint&amp;#34;: &amp;#34;es-local.us-east-1.es.localhost.localstack.cloud:443&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Processing&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ElasticsearchVersion&amp;#34;: &amp;#34;7.10.0&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ElasticsearchClusterConfig&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;InstanceType&amp;#34;: &amp;#34;m3.medium.elasticsearch&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;InstanceCount&amp;#34;: 1,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DedicatedMasterEnabled&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ZoneAwarenessEnabled&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DedicatedMasterType&amp;#34;: &amp;#34;m3.medium.elasticsearch&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DedicatedMasterCount&amp;#34;: 1
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EBSOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EBSEnabled&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;VolumeType&amp;#34;: &amp;#34;gp2&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;VolumeSize&amp;#34;: 10,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Iops&amp;#34;: 0
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;CognitoOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;p>We need the &lt;code>Endpoint&lt;/code> returned here later for the confirmation of our setup.&lt;/p>
-&lt;p>Now let us create our target S3 bucket and our source Kinesis stream:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal s3 mb s3://kinesis-activity-backup-local
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make_bucket: kinesis-activity-backup-local&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal kinesis create-stream --stream-name kinesis-es-local-stream --shard-count 2&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;p>Next, we will create our Firehose delivery stream with Elasticsearch as destination, and S3 as target for our AllDocuments backup.
-We set the ARN of our Kinesis stream in the &lt;code>kinesis-stream-source-configuration&lt;/code> as well as the role we want to use for accessing the stream.
-In the &lt;code>elasticsearch-destination-configuration&lt;/code> we set (again) the access role, the &lt;code>DomainARN&lt;/code> of the Elasticsearch domain we want to publish to, as well as &lt;code>IndexName&lt;/code> and &lt;code>TypeName&lt;/code> for Elasticsearch.
-Since we want to backup all documents to S3, we also set &lt;code>S3BackupMode&lt;/code> to &lt;code>AllDocuments&lt;/code> and provide a &lt;code>S3Configuration&lt;/code> pointing to our created bucket.&lt;/p>
-&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">Note&lt;/h4>
-In LocalStack, per default, the IAM roles will not be verified, so you can provide any ARN here. In AWS, you need to check the access rights of the specified role for the task.
-&lt;/div>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal firehose create-delivery-stream --delivery-stream-name activity-to-elasticsearch-local --delivery-stream-type KinesisStreamAsSource --kinesis-stream-source-configuration &amp;#34;KinesisStreamARN=arn:aws:kinesis:us-east-1:000000000000:stream/kinesis-es-local-stream,RoleARN=arn:aws:iam::000000000000:role/Firehose-Reader-Role&amp;#34; --elasticsearch-destination-configuration &amp;#34;RoleARN=arn:aws:iam::000000000000:role/Firehose-Reader-Role,DomainARN=arn:aws:es:us-east-1:000000000000:domain/es-local,IndexName=activity,TypeName=activity,S3BackupMode=AllDocuments,S3Configuration={RoleARN=arn:aws:iam::000000000000:role/Firehose-Reader-Role,BucketARN=arn:aws:s3:::kinesis-activity-backup-local}&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DeliveryStreamARN&amp;#34;: &amp;#34;arn:aws:firehose:us-east-1:000000000000:deliverystream/activity-to-elasticsearch-local&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;p>Before testing the integration, we should check whether the Elasticsearch cluster is already started up.
-We can do this using the following command (for more information about this, check out the &lt;a href="/user-guide/aws/elasticsearch/">docs page about Elasticsearch&lt;/a>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal es describe-elasticsearch-domain --domain-name es-local | jq &amp;#34;.DomainStatus.Processing&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>false&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;p>Once this command returns &lt;code>false&lt;/code>, we are ready to proceed with ingesting our data.
-We can input our data into our source Kinesis stream, our put it directly into the Firehose delivery stream.&lt;/p>
-&lt;p>To put it into Kinesis, run:&lt;/p>
-&lt;p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal kinesis put-record --stream-name kinesis-es-local-stream --data &amp;#39;{ &amp;#34;target&amp;#34;: &amp;#34;barry&amp;#34; }&amp;#39; --partition-key partition
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ShardId&amp;#34;: &amp;#34;shardId-000000000001&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;SequenceNumber&amp;#34;: &amp;#34;49625461294598302663271645332877318906244481566013128722&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EncryptionType&amp;#34;: &amp;#34;NONE&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">Note&lt;/h4>
-If you are using aws cli v2, you can add &lt;code>--cli-binary-format raw-in-base64-out&lt;/code> to the above command
-&lt;/div>
-&lt;/p>
-&lt;p>Or directly into the Firehose delivery stream:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal firehose put-record --delivery-stream-name activity-to-elasticsearch-local --record &amp;#39;{ &amp;#34;Data&amp;#34;: &amp;#34;eyJ0YXJnZXQiOiAiSGVsbG8gd29ybGQifQ==&amp;#34; }&amp;#39;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;RecordId&amp;#34;: &amp;#34;00333086-7581-48a2-bc7c-8ac1ed97ed3d&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;p>If we now check the entries we made in Elasticsearch (we will use curl for simplicity). Note to replace the url with the &amp;ldquo;Endpoint&amp;rdquo; field of our &lt;code>create-elasticsearch-domain&lt;/code> operation at the beginning.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>curl -s http://es-local.us-east-1.es.localhost.localstack.cloud:443/activity/_search | jq &amp;#39;.hits.hits&amp;#39;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;_index&amp;#34;: &amp;#34;activity&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;_type&amp;#34;: &amp;#34;activity&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;_id&amp;#34;: &amp;#34;f38e2c49-d101-46aa-9ce2-0d2ea8fcd133&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;_score&amp;#34;: 1,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;_source&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;target&amp;#34;: &amp;#34;Hello world&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;_index&amp;#34;: &amp;#34;activity&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;_type&amp;#34;: &amp;#34;activity&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;_id&amp;#34;: &amp;#34;d2f1c125-b3b0-4c7c-ba90-8acf4075a682&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;_score&amp;#34;: 1,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;_source&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;target&amp;#34;: &amp;#34;barry&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>]&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;p>If you get a similar output, you have correctly set up a Firehose delivery stream!
-Also checkout the specified S3 bucket to check if your backup is working correctly.&lt;/p></description></item><item><title>User-Guide: Lambda</title><link>/user-guide/aws/lambda/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/user-guide/aws/lambda/</guid><description>
+&lt;/ul></description></item><item><title>User-Guide: Lambda</title><link>/user-guide/aws/lambda/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/user-guide/aws/lambda/</guid><description>
 &lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>AWS Lambda is a Serverless Function as a Service (FaaS) platform that lets you run code in your preferred programming language on the AWS ecosystem. AWS Lambda automatically scales your code to meet demand and handles server provisioning, management, and maintenance. AWS Lambda allows you to break down your application into smaller, independent functions that integrate seamlessly with AWS services.&lt;/p>
 &lt;p>LocalStack supports Lambda via the Community &amp;amp; Pro/Team offering, allowing you to use the Lambda API to create, deploy, and test your Lambda functions. The supported APIs are available on our &lt;a href="https://docs.localstack.cloud/references/coverage/coverage_lambda/">Lambda coverage page&lt;/a>, which provides information on the extent of Lambda&amp;rsquo;s integration with LocalStack.&lt;/p>
@@ -3372,14 +3225,17 @@ CloudWatch Logs is available in the Community version. However, some specific fe
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --filter-name &amp;#34;kinesis_test&amp;#34; \
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --filter-pattern &amp;#34;&amp;#34; \
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --destination-arn $kinesis_arn \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --role-arn &amp;#34;arn:aws:iam::000000000000:role/kinesis_role&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --role-arn &amp;#34;arn:aws:iam::000000000000:role/kinesis_role&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;p>Next, we can add a log event, that will be forwarded to kinesis.
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>timestamp=$(($(date +&amp;#39;%s * 1000 + %-N / 1000000&amp;#39;)))
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal logs put-log-events --log-group-name test --log-stream-name test --log-events &amp;#34;[{\&amp;#34;timestamp\&amp;#34;: ${timestamp} , \&amp;#34;message\&amp;#34;: \&amp;#34;hello from cloudwatch\&amp;#34;}]&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal logs put-log-events --log-group-name test --log-stream-name test --log-events &amp;#34;[{\&amp;#34;timestamp\&amp;#34;: ${timestamp} , \&amp;#34;message\&amp;#34;: \&amp;#34;hello from cloudwatch\&amp;#34;}]&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;p>Now we can retrieve the data. In our example, there will only be one record. The data record is base64 encoded and compressed in gzip format:
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>shard_iterator=$(awslocal kinesis get-shard-iterator --stream-name logtest --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON | jq -r .ShardIterator)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>record=$(awslocal kinesis get-records --limit 10 --shard-iterator $shard_iterator | jq -r &amp;#39;.Records[0].Data&amp;#39;)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>echo $record | base64 -d | zcat&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>echo $record | base64 -d | zcat&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;h2 id="filter-pattern-pro-only">Filter Pattern (Pro only)&lt;/h2>
 &lt;p>&lt;a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter patterns&lt;/a> can be used to select certain logs only.&lt;/p>
 &lt;p>LocalStack currently supports simple json-property filter.&lt;/p>
@@ -3397,7 +3253,8 @@ CloudWatch Logs is available in the Community version. However, some specific fe
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --filter-name my-filter \
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --filter-pattern &amp;#34;{$.foo = \&amp;#34;bar\&amp;#34;}&amp;#34; \
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --metric-transformations \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> metricName=MyMetric,metricNamespace=MyNamespace,metricValue=1,defaultValue=0&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> metricName=MyMetric,metricNamespace=MyNamespace,metricValue=1,defaultValue=0&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;p>Next, we can insert some values:
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>timestamp=$(($(date +&amp;#39;%s * 1000 + %-N / 1000000&amp;#39;)))
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal logs put-log-events --log-group-name test-filter \
@@ -3405,434 +3262,18 @@ CloudWatch Logs is available in the Community version. However, some specific fe
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --log-events \
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> timestamp=$timestamp,message=&amp;#39;&amp;#34;{\&amp;#34;foo\&amp;#34;:\&amp;#34;bar\&amp;#34;, \&amp;#34;hello\&amp;#34;: \&amp;#34;world\&amp;#34;}&amp;#34;&amp;#39; \
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> timestamp=$timestamp,message=&amp;#34;my test event&amp;#34; \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> timestamp=$timestamp,message=&amp;#39;&amp;#34;{\&amp;#34;foo\&amp;#34;:\&amp;#34;nomatch\&amp;#34;}&amp;#34;&amp;#39;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> timestamp=$timestamp,message=&amp;#39;&amp;#34;{\&amp;#34;foo\&amp;#34;:\&amp;#34;nomatch\&amp;#34;}&amp;#34;&amp;#39;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;p>Now we can check that the metric was indeed created:
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>end=$(date +%s)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>awslocal cloudwatch get-metric-statistics --namespace MyNamespace \
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --metric-name MyMetric --statistics Sum --period 3600 \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --start-time 1659621274 --end-time $end&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --start-time 1659621274 --end-time $end&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;h3 id="filter-log-events">Filter Log Events&lt;/h3>
 &lt;p>Similary, you can use filter-pattern to filter logs, like here:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal logs filter-log-events --log-group-name test-filter --filter-pattern &amp;#34;{$.foo = \&amp;#34;bar\&amp;#34;}&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p></description></item><item><title>User-Guide: OpenSearch Service</title><link>/user-guide/aws/opensearch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/user-guide/aws/opensearch/</guid><description>
-&lt;p>The OpenSearch Service in LocalStack lets you create one or more single-node OpenSearch clusters that behave like the &lt;a href="https://aws.amazon.com/opensearch-service/">Amazon OpenSearch Service&lt;/a>.
-This service, like its AWS counterpart, is closely coupled with the &lt;a href="../elasticsearch">Elasticsearch Service&lt;/a>.
-Any cluster created with the OpenSearch Service will show up in the Elasticsearch Service and vice versa.&lt;/p>
-&lt;p>Following versions of OpenSearch are supported:&lt;/p>
-&lt;ul>
-&lt;li>1.0&lt;/li>
-&lt;li>1.1&lt;/li>
-&lt;li>1.2&lt;/li>
-&lt;li>1.3&lt;/li>
-&lt;li>2.3&lt;/li>
-&lt;li>2.5 (default)&lt;/li>
-&lt;/ul>
-&lt;div class="alert alert-warning" role="alert">
-&lt;h4 class="alert-heading">Warning&lt;/h4>
-&lt;p>LocalStack uses the &lt;a href="https://github.com/opensearch-project/opensearch-py">OpenSearch Python client 2.x&lt;/a> internally.&lt;/p>
-&lt;p>Features that were deprecated in OpenSearch 1.x and removed in OpenSearch 2.x are not guaranteed to work when using OpenSearch 1.x clusters with LocalStack.
-&lt;a href="https://github.com/opensearch-project/opensearch-py/blob/main/COMPATIBILITY.md">More details here&lt;/a>.&lt;/p>
-&lt;/div>
-&lt;h2 id="creating-an-opensearch-cluster">Creating an OpenSearch cluster&lt;/h2>
-&lt;p>You can go ahead and use &lt;a href="/user-guide/integrations/aws-cli/#localstack-aws-cli-awslocal">awslocal&lt;/a> to create a new OpenSearch domain via the &lt;code>aws opensearch create-domain&lt;/code> command.&lt;/p>
-&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">Note&lt;/h4>
-Every time when you create a cluster with a version of OpenSearch you haven&amp;rsquo;t used before, the OpenSearch binary for the respective version needs to be downloaded, which may take a while.
-&lt;/div>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal opensearch create-domain --domain-name my-domain
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DomainStatus&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DomainId&amp;#34;: &amp;#34;000000000000/my-domain&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DomainName&amp;#34;: &amp;#34;my-domain&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ARN&amp;#34;: &amp;#34;arn:aws:es:us-east-1:000000000000:domain/my-domain&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Created&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Deleted&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Endpoint&amp;#34;: &amp;#34;my-domain.us-east-1.opensearch.localhost.localstack.cloud:4566&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Processing&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;UpgradeProcessing&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EngineVersion&amp;#34;: &amp;#34;OpenSearch_1.1&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ClusterConfig&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;InstanceType&amp;#34;: &amp;#34;m3.medium.search&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;InstanceCount&amp;#34;: 1,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DedicatedMasterEnabled&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ZoneAwarenessEnabled&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DedicatedMasterType&amp;#34;: &amp;#34;m3.medium.search&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DedicatedMasterCount&amp;#34;: 1,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;WarmEnabled&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ColdStorageOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EBSOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EBSEnabled&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;VolumeType&amp;#34;: &amp;#34;gp2&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;VolumeSize&amp;#34;: 10,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Iops&amp;#34;: 0
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AccessPolicies&amp;#34;: &amp;#34;&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;SnapshotOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AutomatedSnapshotStartHour&amp;#34;: 0
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;CognitoOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EncryptionAtRestOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;NodeToNodeEncryptionOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AdvancedOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;override_main_response_version&amp;#34;: &amp;#34;false&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;rest.action.multi.allow_explicit_index&amp;#34;: &amp;#34;true&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ServiceSoftwareOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;CurrentVersion&amp;#34;: &amp;#34;&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;NewVersion&amp;#34;: &amp;#34;&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;UpdateAvailable&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Cancellable&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;UpdateStatus&amp;#34;: &amp;#34;COMPLETED&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Description&amp;#34;: &amp;#34;There is no software update available for this domain.&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AutomatedUpdateDate&amp;#34;: 0.0,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;OptionalDeployment&amp;#34;: true
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DomainEndpointOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EnforceHTTPS&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;TLSSecurityPolicy&amp;#34;: &amp;#34;Policy-Min-TLS-1-0-2019-07&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;CustomEndpointEnabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AdvancedSecurityOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;InternalUserDatabaseEnabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AutoTuneOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;State&amp;#34;: &amp;#34;ENABLE_IN_PROGRESS&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;p>In the LocalStack log you will see something like, where you can see the cluster starting up in the background.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-plaintext" data-lang="plaintext">&lt;span style="display:flex;">&lt;span>2022-01-13T10:36:29.436:INFO:localstack.services.opensearch.cluster: starting opensearch: /var/lib/localstack/libs/opensearch/1.1.0/bin/opensearch -E http.port=35403 -E http.publish_port=35403 -E transport.port=0 -E network.host=127.0.0.1 -E http.compression=false -E path.data=&amp;#34;/var/lib/localstack/opensearch/arn:aws:es:us-east-1:000000000000:domain/my-domain/data&amp;#34; -E path.repo=&amp;#34;/var/lib/localstack/opensearch/arn:aws:es:us-east-1:000000000000:domain/my-domain/backup&amp;#34; -E plugins.security.disabled=true with env {&amp;#39;OPENSEARCH_JAVA_OPTS&amp;#39;: &amp;#39;-Xms200m -Xmx600m&amp;#39;, &amp;#39;OPENSEARCH_TMPDIR&amp;#39;: &amp;#39;/var/lib/localstack/opensearch/arn:aws:es:us-east-1:000000000000:domain/my-domain/tmp&amp;#39;}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>2022-01-13T10:36:29.437:INFO:localstack.services.opensearch.cluster: registering an endpoint proxy for http://my-domain.us-east-1.opensearch.localhost.localstack.cloud:4566 =&amp;gt; http://127.0.0.1:35403
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>2022-01-13T10:36:32.803:INFO:localstack.services.opensearch.cluster: [2022-01-13T10:36:32,800][INFO ][o.o.n.Node ] [host-pc] version[1.1.0], pid[231895], build[tar/15e9f137622d878b79103df8f82d78d782b686a1/2021-10-04T21:29:03.079792Z], OS[Linux/5.11.0-46-generic/amd64], JVM[AdoptOpenJDK/OpenJDK 64-Bit Server VM/15.0.1/15.0.1+9]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>2022-01-13T10:36:32.805:INFO:localstack.services.opensearch.cluster: [2022-01-13T10:36:32,805][INFO ][o.o.n.Node ] [host-pc] JVM home [/var/lib/localstack/libs/opensearch/1.1.0/jdk], using bundled JDK [true]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>2022-01-13T10:36:32.806:INFO:localstack.services.opensearch.cluster: [2022-01-13T10:36:32,805][INFO ][o.o.n.Node ] [host-pc] JVM arguments [-Xshare:auto, -Dopensearch.networkaddress.cache.ttl=60, -Dopensearch.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -XX:+ShowCodeDetailsInExceptionMessages, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dio.netty.allocator.numDirectArenas=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Djava.locale.providers=SPI,COMPAT, -XX:+UseG1GC, -XX:G1ReservePercent=25, -XX:InitiatingHeapOccupancyPercent=30, -Djava.io.tmpdir=/var/lib/localstack/opensearch/arn:aws:es:us-east-1:000000000000:domain/my-domain/tmp, -XX:+HeapDumpOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=logs/gc.log:utctime,pid,tags:filecount=32,filesize=64m, -Xms200m, -Xmx600m, -XX:MaxDirectMemorySize=314572800, -Dopensearch.path.home=/var/lib/localstack/libs/opensearch/1.1.0, -Dopensearch.path.conf=/var/lib/localstack/libs/opensearch/1.1.0/config, -Dopensearch.distribution.type=tar, -Dopensearch.bundled_jdk=true]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>and after some time, you should see that the &lt;code>Processing&lt;/code> state of the domain is set to &lt;code>false&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal opensearch describe-domain --domain-name my-domain | jq &amp;#34;.DomainStatus.Processing&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>false&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;h3 id="creating-an-elasticsearch-cluster">Creating an Elasticsearch cluster&lt;/h3>
-&lt;p>Like in AWS, the OpenSearch service can create Elasticsearch clusters and manage them.
-To do so, you can use &lt;a href="/user-guide/integrations/aws-cli/#localstack-aws-cli-awslocal">awslocal&lt;/a> and select an Elasticsearch version with the &lt;code>--engine-version&lt;/code> parameter of the &lt;code>awslocal opensearch create-domain&lt;/code> command.
-For an overview of existing Elasticsearch versions you can use &lt;code>awslocal opensearch list-versions&lt;/code>.&lt;/p>
-&lt;h2 id="interact-with-the-cluster">Interact with the cluster&lt;/h2>
-&lt;p>You can now interact with the cluster at the cluster API endpoint for the domain, in this case &lt;code>http://my-domain.us-east-1.opensearch.localhost.localstack.cloud:4566&lt;/code>.&lt;/p>
-&lt;p>For example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>curl http://my-domain.us-east-1.opensearch.localhost.localstack.cloud:4566
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;name&amp;#34; : &amp;#34;host-pc&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;cluster_name&amp;#34; : &amp;#34;opensearch&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;cluster_uuid&amp;#34; : &amp;#34;DMN-2TlwRkuhMH4aRRqrkA&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;version&amp;#34; : {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;distribution&amp;#34; : &amp;#34;opensearch&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;number&amp;#34; : &amp;#34;1.1.0&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;build_type&amp;#34; : &amp;#34;tar&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;build_hash&amp;#34; : &amp;#34;15e9f137622d878b79103df8f82d78d782b686a1&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;build_date&amp;#34; : &amp;#34;2021-10-04T21:29:03.079792Z&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;build_snapshot&amp;#34; : false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;lucene_version&amp;#34; : &amp;#34;8.9.0&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;minimum_wire_compatibility_version&amp;#34; : &amp;#34;6.8.0&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;minimum_index_compatibility_version&amp;#34; : &amp;#34;6.0.0-beta1&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;tagline&amp;#34; : &amp;#34;The OpenSearch Project: https://opensearch.org/&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;p>Or the health endpoint:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>curl -s http://my-domain.us-east-1.opensearch.localhost.localstack.cloud:4566/_cluster/health | jq .
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;cluster_name&amp;#34;: &amp;#34;opensearch&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;status&amp;#34;: &amp;#34;green&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;timed_out&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;number_of_nodes&amp;#34;: 1,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;number_of_data_nodes&amp;#34;: 1,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;discovered_master&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;active_primary_shards&amp;#34;: 0,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;active_shards&amp;#34;: 0,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;relocating_shards&amp;#34;: 0,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;initializing_shards&amp;#34;: 0,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;unassigned_shards&amp;#34;: 0,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;delayed_unassigned_shards&amp;#34;: 0,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;number_of_pending_tasks&amp;#34;: 0,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;number_of_in_flight_fetch&amp;#34;: 0,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;task_max_waiting_in_queue_millis&amp;#34;: 0,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;active_shards_percent_as_number&amp;#34;: 100
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;h2 id="advanced-topics">Advanced topics&lt;/h2>
-&lt;h3 id="endpoints">Endpoints&lt;/h3>
-&lt;p>There are two configurable strategies that govern how domain endpoints are created. The strategy can be configured via the &lt;code>OPENSEARCH_ENDPOINT_STRATEGY&lt;/code> environment variable.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Value&lt;/th>
-&lt;th>Format&lt;/th>
-&lt;th>Description&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>domain&lt;/code>&lt;/td>
-&lt;td>&lt;code>&amp;lt;domain-name&amp;gt;.&amp;lt;region&amp;gt;.&amp;lt;engine-type&amp;gt;.localhost.localstack.cloud:4566&lt;/code>&lt;/td>
-&lt;td>This is the default strategy that uses the &lt;code>localhost.localstack.cloud&lt;/code> domain to route to your localhost&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>path&lt;/code>&lt;/td>
-&lt;td>&lt;code>localhost:4566/&amp;lt;engine-type&amp;gt;/&amp;lt;region&amp;gt;/&amp;lt;domain-name&amp;gt;&lt;/code>&lt;/td>
-&lt;td>An alternative that can be useful if you cannot resolve LocalStack&amp;rsquo;s localhost domain&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>port&lt;/code>&lt;/td>
-&lt;td>&lt;code>localhost:&amp;lt;port-from-range&amp;gt;&lt;/code>&lt;/td>
-&lt;td>Exposes the cluster(s) directly with ports from &lt;a href="/references/external-ports/">the external service port range&lt;/a>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Regardless of the service from which the clusters were created, the domain of the cluster always corresponds to the engine type (OpenSearch or Elasticsearch) of the cluster.
-OpenSearch cluster therefore have &lt;code>opensearch&lt;/code> in their domain (e.g. &lt;code>my-domain.us-east-1.opensearch.localhost.localstack.cloud:4566&lt;/code>) and Elasticsearch clusters have &lt;code>es&lt;/code> in their domain (e.g. &lt;code>my-domain.us-east-1.es.localhost.localstack.cloud:4566&lt;/code>)&lt;/p>
-&lt;h4 id="custom-endpoints">Custom Endpoints&lt;/h4>
-&lt;p>LocalStack allows you to set arbitrary custom endpoints for your clusters in the domain endpoint options.
-This can be used to overwrite the behavior of the endpoint strategies described above.
-You can also choose custom domains, however it is important to add the edge port (&lt;code>80&lt;/code>/&lt;code>443&lt;/code> or by default &lt;code>4566&lt;/code>).&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal opensearch create-domain --domain-name my-domain \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --domain-endpoint-options &amp;#39;{ &amp;#34;CustomEndpoint&amp;#34;: &amp;#34;http://localhost:4566/my-custom-endpoint&amp;#34;, &amp;#34;CustomEndpointEnabled&amp;#34;: true }&amp;#39;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;p>Once the domain processing is complete, you can access the cluster:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>curl http://localhost:4566/my-custom-endpoint/_cluster/health&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;h3 id="re-using-a-single-cluster-instance">Re-using a single cluster instance&lt;/h3>
-&lt;p>In some cases, you may not want to create a new cluster instance for each domain,
-for example when you are only interested in testing API interactions instead of actual OpenSearch functionality.
-In this case, you can set &lt;code>OPENSEARCH_MULTI_CLUSTER=0&lt;/code>, which will multiplex all domains to the same cluster.
-This can however lead to unexpected behavior when persisting data into OpenSearch, or creating clusters with different versions, so we do not recommend it.&lt;/p>
-&lt;h3 id="storage-layout">Storage Layout&lt;/h3>
-&lt;p>OpenSearch will be organized in your state directory as follows:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-plaintext" data-lang="plaintext">&lt;span style="display:flex;">&lt;span>localstack@machine % tree -L 4 ./volume/state
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./volume/state
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── opensearch
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └── arn:aws:es:us-east-1:000000000000:domain
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├── my-cluster-1
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ │ ├── backup
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ │ ├── data
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ │ └── tmp
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├── my-cluster-2
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ │ ├── backup
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ │ ├── data
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ │ └── tmp
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="advanced-security-options">Advanced Security Options&lt;/h3>
-&lt;p>Since LocalStack 1.4.0, the OpenSearch and ElasticSearch services support &amp;ldquo;Advanced Security Options&amp;rdquo;.
-Currently, the internal user database for OpenSearch domains is supported.
-ElasticSearch domains are currently not supported (neither via the OpenSearch nor the ElasticSearch service).
-There is no integration with IAM yet (but this might be implemented in later iterations, based on user feedback).&lt;/p>
-&lt;p>A secure OpenSearch domain can be spawned with this example CLI input:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;DomainName&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;secure-domain&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;ClusterConfig&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;InstanceType&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;r5.large.search&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;InstanceCount&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;DedicatedMasterEnabled&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;ZoneAwarenessEnabled&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;WarmEnabled&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;EBSOptions&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;EBSEnabled&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;VolumeType&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;gp2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;VolumeSize&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;EncryptionAtRestOptions&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;Enabled&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;NodeToNodeEncryptionOptions&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;Enabled&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;DomainEndpointOptions&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;EnforceHTTPS&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;AdvancedSecurityOptions&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;Enabled&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;InternalUserDatabaseEnabled&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;MasterUserOptions&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;MasterUserName&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;admin&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;MasterUserPassword&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;really-secure-passwordAa!1&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It can be provisioned with the following aws(local) cli command, presumed the above CLI input is stored in a file called &lt;code>opensearch_domain.json&lt;/code>:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal opensearch create-domain --cli-input-json file://./opensearch_domain.json&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
-&lt;p>Once the domain is set up (&lt;code>Processing: false&lt;/code>), the cluster can only be accessed with the given master user credentials (via HTTP basic auth):
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>curl -u &amp;#34;admin:really-secure-passwordAa!1&amp;#34; http://secure-domain.us-east-1.opensearch.localhost.localstack.cloud:4566/_cluster/health
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{&amp;#34;cluster_name&amp;#34;:&amp;#34;opensearch&amp;#34;,&amp;#34;status&amp;#34;:&amp;#34;green&amp;#34;,...}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-Any unauthorized requests will result in an HTTP response status code 401 (Unauthorized).&lt;/p>
-&lt;h2 id="custom-opensearch-backends">Custom OpenSearch backends&lt;/h2>
-&lt;p>LocalStack downloads OpenSearch asynchronously the first time you run the &lt;code>aws opensearch create-domain&lt;/code>, so you will get the response from LocalStack first and then (after download/install) you will have your OpenSearch cluster running locally.
-You may not want this, and instead use your already running OpenSearch cluster.
-This can also be useful when you want to run a cluster with a custom configuration that LocalStack does not support.&lt;/p>
-&lt;p>To customize the OpenSearch backend, you can start your own OpenSearch cluster locally and point LocalStack to it using the &lt;code>OPENSEARCH_CUSTOM_BACKEND&lt;/code> environment variable.
-Note that only a single backend can be configured, meaning that you will get a similar behavior as when you &lt;a href="#re-using-a-single-cluster-instance">re-use a single cluster instance&lt;/a>.&lt;/p>
-&lt;h3 id="example">Example&lt;/h3>
-&lt;p>The following shows a sample &lt;code>docker-compose.yaml&lt;/code> file that contains a single-node OpenSearch cluster and a basic LocalStack setup.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">version&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;3.9&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">services&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">opensearch&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">container_name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">opensearch&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">image&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">opensearchproject/opensearch:1.1.0&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">environment&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#000">node.name=opensearch&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#000">cluster.name=opensearch-docker-cluster&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#000">discovery.type=single-node&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#000">bootstrap.memory_lock=true&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#34;OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#34;DISABLE_SECURITY_PLUGIN=true&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ports&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#34;9200:9200&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ulimits&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">memlock&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">soft&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">hard&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">volumes&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#000">data01:/usr/share/opensearch/data&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">localstack&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">container_name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;${LOCALSTACK_DOCKER_NAME-localstack_main}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">image&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">localstack/localstack&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ports&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#34;4566:4566&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">depends_on&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#000">opensearch&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">environment&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#000">OPENSEARCH_CUSTOM_BACKEND=http://opensearch:9200&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#000">DEBUG=${DEBUG- }&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#000">PERSISTENCE=${PERSISTENCE- }&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#000">DOCKER_HOST=unix:///var/run/docker.sock&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">volumes&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#34;${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#34;/var/run/docker.sock:/var/run/docker.sock&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">volumes&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">data01&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">driver&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">local&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
-&lt;li>
-&lt;p>Run docker compose:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>docker-compose up -d&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Create the OpenSearch domain:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal opensearch create-domain --domain-name my-domain
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DomainStatus&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DomainId&amp;#34;: &amp;#34;000000000000/my-domain&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DomainName&amp;#34;: &amp;#34;my-domain&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ARN&amp;#34;: &amp;#34;arn:aws:es:us-east-1:000000000000:domain/my-domain&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Created&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Deleted&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Endpoint&amp;#34;: &amp;#34;my-domain.us-east-1.opensearch.localhost.localstack.cloud:4566&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Processing&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;UpgradeProcessing&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EngineVersion&amp;#34;: &amp;#34;OpenSearch_1.1&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ClusterConfig&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;InstanceType&amp;#34;: &amp;#34;m3.medium.search&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;InstanceCount&amp;#34;: 1,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DedicatedMasterEnabled&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ZoneAwarenessEnabled&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DedicatedMasterType&amp;#34;: &amp;#34;m3.medium.search&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DedicatedMasterCount&amp;#34;: 1,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;WarmEnabled&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ColdStorageOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EBSOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EBSEnabled&amp;#34;: true,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;VolumeType&amp;#34;: &amp;#34;gp2&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;VolumeSize&amp;#34;: 10,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Iops&amp;#34;: 0
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AccessPolicies&amp;#34;: &amp;#34;&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;SnapshotOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AutomatedSnapshotStartHour&amp;#34;: 0
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;CognitoOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EncryptionAtRestOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;NodeToNodeEncryptionOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AdvancedOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;override_main_response_version&amp;#34;: &amp;#34;false&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;rest.action.multi.allow_explicit_index&amp;#34;: &amp;#34;true&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;ServiceSoftwareOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;CurrentVersion&amp;#34;: &amp;#34;&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;NewVersion&amp;#34;: &amp;#34;&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;UpdateAvailable&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Cancellable&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;UpdateStatus&amp;#34;: &amp;#34;COMPLETED&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Description&amp;#34;: &amp;#34;There is no software update available for this domain.&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AutomatedUpdateDate&amp;#34;: 0.0,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;OptionalDeployment&amp;#34;: true
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;DomainEndpointOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;EnforceHTTPS&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;TLSSecurityPolicy&amp;#34;: &amp;#34;Policy-Min-TLS-1-0-2019-07&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;CustomEndpointEnabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AdvancedSecurityOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Enabled&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;InternalUserDatabaseEnabled&amp;#34;: false
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;AutoTuneOptions&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;State&amp;#34;: &amp;#34;ENABLE_IN_PROGRESS&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>If the &lt;code>Processing&lt;/code> status is &lt;code>true&lt;/code>, it means that the cluster is not yet healthy. You can run &lt;code>decribe-domain&lt;/code> to receive the status:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal opensearch describe-domain --domain-name my-domain&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Check the cluster health endpoint and create indices:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>curl my-domain.us-east-1.opensearch.localhost.localstack.cloud:4566/_cluster/health | jq
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;name&amp;#34;: &amp;#34;host-pc&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;cluster_name&amp;#34;: &amp;#34;opensearch&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;cluster_uuid&amp;#34;: &amp;#34;DMN-2TlwRkuhMH4aRRqrkA&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;version&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;distribution&amp;#34;: &amp;#34;opensearch&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;number&amp;#34;: &amp;#34;1.1.0&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;build_type&amp;#34;: &amp;#34;tar&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;build_hash&amp;#34;: &amp;#34;15e9f137622d878b79103df8f82d78d782b686a1&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;build_date&amp;#34;: &amp;#34;2021-10-04T21:29:03.079792Z&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;build_snapshot&amp;#34;: false,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;lucene_version&amp;#34;: &amp;#34;8.9.0&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;minimum_wire_compatibility_version&amp;#34;: &amp;#34;6.8.0&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;minimum_index_compatibility_version&amp;#34;: &amp;#34;6.0.0-beta1&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;tagline&amp;#34;: &amp;#34;The OpenSearch Project: https://opensearch.org/&amp;#34;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Create an example index:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>curl -X PUT my-domain.us-east-1.opensearch.localhost.localstack.cloud:4566/my-index
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{&amp;#34;acknowledged&amp;#34;:true,&amp;#34;shards_acknowledged&amp;#34;:true,&amp;#34;index&amp;#34;:&amp;#34;my-index&amp;#34;}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;h2 id="differences-to-aws">Differences to AWS&lt;/h2>
-&lt;ul>
-&lt;li>By default, AWS only sets the &lt;code>Endpoint&lt;/code> attribute of the cluster status once the cluster is up.
-LocalStack will return the endpoint immediately, but keep &lt;code>Processing = &amp;quot;true&amp;quot;&lt;/code> until the cluster has been started.&lt;/li>
-&lt;li>The &lt;code>CustomEndpointOptions&lt;/code> allows arbitrary endpoint URLs, which is not allowed in AWS.&lt;/li>
-&lt;/ul>
-&lt;h2 id="troubleshooting">Troubleshooting&lt;/h2>
-&lt;p>If you are using the &lt;code>OPENSEARCH_ENDPOINT_STRATEGY=domain&lt;/code> (which is the default) and are having issues with resolving the subdomains, &lt;a href="/user-guide/tools/transparent-endpoint-injection/dns-server/#dns-rebind-protection">please check if your DNS blocks rebind queries&lt;/a>.&lt;/p></description></item><item><title>User-Guide: Simple Email Service (SES)</title><link>/user-guide/aws/ses/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/user-guide/aws/ses/</guid><description>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal logs filter-log-events --log-group-name test-filter --filter-pattern &amp;#34;{$.foo = \&amp;#34;bar\&amp;#34;}&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p></description></item><item><title>User-Guide: Simple Email Service (SES)</title><link>/user-guide/aws/ses/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/user-guide/aws/ses/</guid><description>
 &lt;h2 id="sent-emails">Sent Emails&lt;/h2>
 &lt;p>LocalStack keeps track of all sent emails for retrospection.
 The sent messages can be retrieved in following ways:&lt;/p>
@@ -3853,8 +3294,9 @@ Emails can be sent via the command line (or SES client SDK):
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal ses send-email \
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --from user1@yourdomain.com \
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --message &amp;#39;Body={Text={Data=&amp;#34;Lorem ipsum dolor sit amet, consectetur adipiscing elit, ...&amp;#34;}},Subject={Data=Test Email}&amp;#39; \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --destination &amp;#39;ToAddresses=recipient1@example.com&amp;#39;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
-&lt;div class="alert alert-info" role="alert">
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --destination &amp;#39;ToAddresses=recipient1@example.com&amp;#39;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
+&lt;div class="alert alert-success" role="alert">
 &lt;h4 class="alert-heading">Hint&lt;/h4>
 &lt;p>If you receive a &amp;ldquo;Email address not verified message&amp;rdquo;, simply call&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>awslocal ses verify-email-identity --email-address user1@yourdomain.com
@@ -3891,7 +3333,8 @@ For example, you could send a &lt;code>SendMessage&lt;/code> command using a &lt
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>curl &amp;#34;http://localhost:4566/000000000000/sample-queue?Action=SendMessage&amp;amp;MessageBody=hello%2Fworld&amp;#34;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;?xml version=&amp;#39;1.0&amp;#39; encoding=&amp;#39;utf-8&amp;#39;?&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;SendMessageResponse xmlns=&amp;#34;http://queue.amazonaws.com/doc/2012-11-05/&amp;#34;&amp;gt;&amp;lt;SendMessageResult&amp;gt;&amp;lt;MD5OfMessageBody&amp;gt;c6be4e95a26409675447367b3e79f663&amp;lt;/MD5OfMessageBody&amp;gt;&amp;lt;MessageId&amp;gt;466144ab-1d03-4ec5-8d70-97535b2957fb&amp;lt;/MessageId&amp;gt;&amp;lt;/SendMessageResult&amp;gt;&amp;lt;ResponseMetadata&amp;gt;&amp;lt;RequestId&amp;gt;JU40AF5GORK0WSR75MOY3VNQ1KZ3TAI7S5KAJYGK9C5P4W4XKMGF&amp;lt;/RequestId&amp;gt;&amp;lt;/ResponseMetadata&amp;gt;&amp;lt;/SendMessageResponse&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;SendMessageResponse xmlns=&amp;#34;http://queue.amazonaws.com/doc/2012-11-05/&amp;#34;&amp;gt;&amp;lt;SendMessageResult&amp;gt;&amp;lt;MD5OfMessageBody&amp;gt;c6be4e95a26409675447367b3e79f663&amp;lt;/MD5OfMessageBody&amp;gt;&amp;lt;MessageId&amp;gt;466144ab-1d03-4ec5-8d70-97535b2957fb&amp;lt;/MessageId&amp;gt;&amp;lt;/SendMessageResult&amp;gt;&amp;lt;ResponseMetadata&amp;gt;&amp;lt;RequestId&amp;gt;JU40AF5GORK0WSR75MOY3VNQ1KZ3TAI7S5KAJYGK9C5P4W4XKMGF&amp;lt;/RequestId&amp;gt;&amp;lt;/ResponseMetadata&amp;gt;&amp;lt;/SendMessageResponse&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/p>
 &lt;p>Adding the &lt;code>Accept: application/json&lt;/code> header will make the server return JSON:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>curl -H &amp;#34;Accept: application/json&amp;#34; &amp;#34;http://localhost:4566/000000000000/my-queue?Action=SendMessage&amp;amp;MessageBody=hello%2Fworld&amp;#34;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{&amp;#34;SendMessageResponse&amp;#34;: {&amp;#34;SendMessageResult&amp;#34;: {&amp;#34;MD5OfMessageBody&amp;#34;: &amp;#34;c6be4e95a26409675447367b3e79f663&amp;#34;, &amp;#34;MessageId&amp;#34;: &amp;#34;748297f2-4abd-4ec2-afc0-4d1a497fe604&amp;#34;}, &amp;#34;ResponseMetadata&amp;#34;: {&amp;#34;RequestId&amp;#34;: &amp;#34;XEA5L5AX16RTPET25U3TIRIASN6KNIT820WIT3EY7RCH7164W68T&amp;#34;}}}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
@@ -4222,111 +3665,4 @@ id="tabs-11-01" role="tabpanel" aria-labelled-by="tabs-11-01-tab">
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="known-limitations-and-differences-to-aws">Known limitations and differences to AWS&lt;/h2>
 &lt;ul>
 &lt;li>The &lt;code>ApproximateReceiveCount&lt;/code> attribute of a message will be reset to 0 when the message moves to a DLQ.&lt;/li>
-&lt;/ul></description></item><item><title>User-Guide: Step Functions</title><link>/user-guide/aws/stepfunctions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/user-guide/aws/stepfunctions/</guid><description>
-&lt;p>Amazon Web Services (AWS) Step Functions is a serverless workflow engine that integrates with AWS Lambda and other AWS services. It allows us to define workflows using Amazon States Language, a JSON-based structured language, to provide the necessary configurations and run the workflow. Step Functions allow you to define standard workflows and express workflows for long-running workflows and high-volume event processing, respectively.&lt;/p>
-&lt;p>LocalStack provides Step Functions support via the Community offering. You can use the Step Functions API to create, execute, update, and delete state machines. The supported APIs are available over our &lt;a href="/user-guide/aws/feature-coverage/">feature coverage page&lt;/a>.&lt;/p>
-&lt;h2 id="getting-started">Getting started&lt;/h2>
-&lt;p>In this getting started guide, you&amp;rsquo;ll learn how to make basic usage of Step Functions in LocalStack. This guide is intended for users who wish to get more acquainted with Step Functions, and assumes you have basic knowledge of the AWS CLI (and our &lt;a href="https://github.com/localstack/awscli-local">&lt;code>awslocal&lt;/code>&lt;/a> wrapper script). First, start your LocalStack instance using your preferred method, then run the following commands:&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>Create a state machine using the &lt;code>create-state-machine&lt;/code> command and specify the name of the state machine, the state machine definition, and the role ARN that the state machine will assume to call AWS services:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal stepfunctions create-state-machine \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --name &amp;#34;WaitMachine&amp;#34; \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --definition &amp;#39;{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;StartAt&amp;#34;: &amp;#34;WaitExecution&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;States&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;WaitExecution&amp;#34;: {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Type&amp;#34;: &amp;#34;Wait&amp;#34;,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;Seconds&amp;#34;: 10,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;End&amp;#34;: true
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }&amp;#39; \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --role-arn &amp;#34;arn:aws:iam::000000000000:role/stepfunctions-role&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-In the above example, we have created a state machine named &lt;code>WaitMachine&lt;/code>, with a single state, &lt;code>WaitExecution&lt;/code>, which waits for 10 seconds before completing the execution. The role ARN is used to grant the state machine access to other AWS services, and you can create an IAM role within LocalStack as well. The output of the above command is the ARN of the state machine:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;stateMachineArn&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;arn:aws:states:&amp;lt;AWS_REGION&amp;gt;:000000000000:stateMachine:WaitMachine&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;creationDate&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;DATE&amp;gt;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>You can list the state machines in your account by running the following command:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal stepfunctions list-state-machines&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-The output of the above command is a list of state machines:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;stateMachines&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;stateMachineArn&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;arn:aws:states:&amp;lt;AWS_REGION&amp;gt;:000000000000:stateMachine:WaitMachine&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;WaitMachine&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;type&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;STANDARD&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;creationDate&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;DATE&amp;gt;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>You can retrieve the state machine using the ARN returned in the first step, via the &lt;code>list-state-machines&lt;/code> command:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal stepfunctions describe-state-machine --state-machine-arn &amp;#34;arn:aws:states:&amp;lt;AWS_REGION&amp;gt;:000000000000:stateMachine:WaitExecution&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-The output of the above command is the state machine definition:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;stateMachineArn&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;arn:aws:states:us-east-1:000000000000:stateMachine:WaitMachine&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;WaitMachine&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;status&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ACTIVE&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;definition&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;{\n \&amp;#34;StartAt\&amp;#34;: \&amp;#34;WaitExecution\&amp;#34;,\n \&amp;#34;States\&amp;#34;: {\n \&amp;#34;WaitExecution\&amp;#34;: {\n \&amp;#34;Type\&amp;#34;: \&amp;#34;Wait\&amp;#34;,\n \&amp;#34;Seconds\&amp;#34;: 10,\n \&amp;#34;End\&amp;#34;: true\n }\n }\n }&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;roleArn&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;arn:aws:iam::000000000000:role/stepfunctions-role&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;type&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;STANDARD&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;creationDate&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;DATE&amp;gt;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;loggingConfiguration&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;level&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;OFF&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;includeExecutionData&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>You can next execute the state machine using the &lt;code>start-execution&lt;/code> command:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal stepfunctions start-execution \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --state-machine-arn &amp;#34;arn:aws:states:&amp;lt;REGION&amp;gt;:000000000000:stateMachine:WaitMachine&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-The output of the above command is the execution ARN:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;executionArn&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;arn:aws:states:us-east-1:000000000000:execution:WaitMachine:&amp;lt;ID&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;startDate&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;DATE&amp;gt;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>To check the status of the execution, you can use the &lt;code>describe-execution&lt;/code> command:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal stepfunctions describe-execution \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --execution-arn &amp;#34;arn:aws:states:us-east-1:000000000000:execution:WaitMachine:&amp;lt;ID&amp;gt;&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-The output of the above command is the execution status:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;executionArn&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;arn:aws:states:us-east-1:000000000000:execution:WaitMachine:32174130-4587-4314-ad63-86c6242523b2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;stateMachineArn&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;arn:aws:states:us-east-1:000000000000:stateMachine:WaitMachine&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;NAME&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;status&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;SUCCEEDED&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;startDate&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;START_DATE&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;stopDate&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;STOP_DATE&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;input&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;{}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;inputDetails&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;included&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;output&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;{}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;outputDetails&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;included&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>To update the state machine definition, you can use the &lt;code>update-state-machine&lt;/code> command:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal stepfunctions update-state-machine \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --state-machine-arn &amp;#34;arn:aws:states:&amp;lt;REGION&amp;gt;:000000000000:stateMachine:WaitMachine&amp;#34; \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --definition file://path/to/your/statemachine.json
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --role-arn &amp;#34;arn:aws:iam::000000000000:role/stepfunctions-role&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>To delete the state machine, you can use the &lt;code>delete-state-machine&lt;/code> command:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>&lt;span class="command-prefix">$ &lt;/span>awslocal stepfunctions delete-state-machine \
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --state-machine-arn &amp;#34;arn:aws:states:&amp;lt;REGION&amp;gt;:000000000000:stateMachine:WaitMachine&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;p>For an extensive list of supported Step Functions APIs, please refer to the &lt;a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">official AWS documentation&lt;/a>, and the &lt;a href="https://docs.aws.amazon.com/cli/latest/reference/stepfunctions/index.html">CLI reference&lt;/a>.&lt;/p>
-&lt;h2 id="using-localstack-pro">Using LocalStack Pro&lt;/h2>
-&lt;p>LocalStack Pro users can access our &lt;a href="https://app.localstack.cloud">LocalStack App&amp;rsquo;s&lt;/a> web user interface to work with Step Functions and other AWS services. It is a convenient way to work with Step Functions and allows you to check the executions and flowcharts in a fashion similar to the AWS console. While using the LocalStack App, ensure you have the LocalStack instance running. You can also navigate across previous events and executions and view the state machine statuses.&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>
