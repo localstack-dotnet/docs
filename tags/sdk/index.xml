@@ -44,10 +44,7 @@ In case of issues resolving this DNS record, we can fallback to &lt;a href="http
 &lt;p>&lt;code>LocalStack.NET&lt;/code> is a .NET client library developed to simplify the connection between .NET applications and LocalStack. It wraps around the AWS SDK for .NET and offers an alternative setup for creating LocalStack clients.&lt;/p>
 &lt;p>&lt;strong>LocalStack.NET Documentation:&lt;/strong> Comprehensive guide and examples &lt;a href="https://github.com/localstack-dotnet/localstack-dotnet-client">here&lt;/a>.&lt;/p>
 &lt;h3 id="how-it-works">How it Works&lt;/h3>
-&lt;ul>
-&lt;li>Instead of manually setting the endpoint configurations when initializing a client, &lt;code>LocalStack.NET&lt;/code> offers methods that handle these details.&lt;/li>
-&lt;li>The library aims to reduce the boilerplate required to set up LocalStack clients in .NET.&lt;/li>
-&lt;/ul>
+&lt;p>Instead of manually setting the endpoint configurations when initializing a client, &lt;code>LocalStack.NET&lt;/code> offers methods that handle these details. The library aims to reduce the boilerplate required to set up LocalStack clients in .NET.&lt;/p>
 &lt;h3 id="example-usage">Example Usage&lt;/h3>
 &lt;h4 id="dependency-injection-approach">Dependency Injection Approach&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">public&lt;/span> &lt;span style="color:#204a87;font-weight:bold">void&lt;/span> &lt;span style="color:#000">ConfigureServices&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">IServiceCollection&lt;/span> &lt;span style="color:#000">services&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
